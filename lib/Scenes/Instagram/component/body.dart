@@ -15,14 +15,14 @@ class _BodyComponentState extends State<BodyComponent> {
   @override
   Widget build(BuildContext context) {
     var rng = new Random();
-
+    print('hhe');
     return Padding(
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
           //app bar
           Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: EdgeInsets.only(top: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -37,6 +37,7 @@ class _BodyComponentState extends State<BodyComponent> {
             width: MediaQuery.of(context).size.width,
             height: 100,
             child: ListView.builder(
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
@@ -49,15 +50,15 @@ class _BodyComponentState extends State<BodyComponent> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            height: 70,
-                            width: 70,
+                            height: 60,
+                            width: 60,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
                                 color: kWhiteColor),
                             child: Center(
                               child: Container(
-                                height: 64,
-                                width: 64,
+                                height: 54,
+                                width: 54,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage('images/story5.png')),
@@ -104,14 +105,14 @@ class _BodyComponentState extends State<BodyComponent> {
           //search bar
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 100,
+            height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Explorer',
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 25,
                     fontWeight: FontWeight.w600,
                     color: kWhiteColor,
                   ),
@@ -141,9 +142,49 @@ class _BodyComponentState extends State<BodyComponent> {
               ],
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           //list post
-          ListView.builder(
+          Expanded(
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Container(
+                    height: 400,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: kGreyDarkColor,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  image: DecorationImage(
+                                      image: AssetImage('images/story5.png'))),
+                            ),
+                            Column(
+                              children: [
+                                Text('1j.ft',style: TextStyle(fontWeight: FontWeight.bold,color: kWhiteColor),),
+                                Text('has 20 min',style: TextStyle(color:kWhiteColor.withOpacity(0.5)),)
+                              ],
+                            ),
 
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),
@@ -155,15 +196,15 @@ class _BodyComponentState extends State<BodyComponent> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 70,
-          width: 70,
+          height: 60,
+          width: 60,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
               gradient: kGradiantStory),
           child: Center(
             child: Container(
-              height: 64,
-              width: 64,
+              height: 54,
+              width: 54,
               decoration: BoxDecoration(
                 image: DecorationImage(image: AssetImage(imagePath)),
                 borderRadius: BorderRadius.circular(100),
